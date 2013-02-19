@@ -83,6 +83,19 @@ public class Instance {
 		}
 	}
 	
+	public void fillAtRandom(int numberOfLivingCells, int seed) {
+		Random r = new Random(seed);
+		int currentNumberOfCells = 0 ;
+		while(currentNumberOfCells < numberOfLivingCells) {
+			int x = r.nextInt(this.sizeX);
+			int y = r.nextInt(this.sizeY);
+			if(!cells[x][y]) {
+				cells[x][y] = true ;
+				currentNumberOfCells++;
+			}
+		}
+	}
+	
 	public String toString() {
 		String s = "" ;
 		for(int i=0 ; i< this.sizeX ; i++) {
@@ -91,7 +104,7 @@ public class Instance {
 				if(cells[i][j]) {
 					s += " x ";
 				} else {
-					s += "   ";
+					s += " . ";
 				}
 			}
 		}
