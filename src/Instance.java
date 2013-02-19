@@ -49,6 +49,12 @@ public class Instance {
 		}
 	}
 	
+	public Instance(boolean[][] currentCells) {
+		this.sizeX = currentCells.length ;
+		this.sizeY = currentCells[0].length ;
+		this.cells = currentCells ;
+	}
+	
 	public Instance(int size_x, int size_y, ArrayList<Coordinate> a) {
 		this.sizeX = size_x ;
 		this.sizeY = size_y ;
@@ -75,5 +81,20 @@ public class Instance {
 				currentNumberOfCells++;
 			}
 		}
+	}
+	
+	public String toString() {
+		String s = "" ;
+		for(int i=0 ; i< this.sizeX ; i++) {
+			s += "|\n|";
+			for(int j=0 ; j<this.sizeY ; j++) {
+				if(cells[i][j]) {
+					s += " x ";
+				} else {
+					s += "   ";
+				}
+			}
+		}
+		return s ;
 	}
 }
